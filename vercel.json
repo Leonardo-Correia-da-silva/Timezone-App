@@ -1,7 +1,7 @@
 {
     "functions": {
       "api/getTimezones.js": {
-        "runtime": "nodejs14.x"
+        "runtime": "now-node@1.6.2-dev.8"
       }
     }
   }
