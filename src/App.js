@@ -21,7 +21,7 @@ const App = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://api.timezonedb.com/v2.1/list-time-zone?key=6LMMMZLM95D4&format=json`
+          'https://api.timezonedb.com/v2.1/list-time-zone?key=6LMMMZLM95D4&format=json'
         );
 
         const uniqueCountries = Array.from(new Set(response.data.zones.map(zone => zone.countryCode)));
