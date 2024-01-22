@@ -14,7 +14,7 @@ i18n
     resources: {
       en: {
         translation: {
-          title: 'Current Times Around the World',
+          title: 'CURRENT TIMES AROUND THE WORLD',
           selectCountryLabel: 'Select Country:',
           chooseCountryOption: 'Choose a country',
           showTimeButton: 'Show Time',
@@ -38,7 +38,7 @@ i18n
       },
       'pt-BR': {
         translation: {
-          title: 'Horários Atuais ao Redor do Mundo',
+          title: 'HORÁRIOS ATUAIS AO REDOR DO MUNDO',
           selectCountryLabel: 'Selecione o País:',
           chooseCountryOption: 'Escolha um país',
           showTimeButton: 'Mostrar Horário',
