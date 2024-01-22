@@ -35,7 +35,7 @@ body::before {
   background-color: rgba(2, 2, 2, 0.664);
   padding: 30px;
   border-radius: 100px;
-  box-shadow: 0 4px 25px rgba(12, 52, 112, 0.795);
+  box-shadow: 0 0px 35px rgba(12, 52, 112, 0.795);
   max-width: 600px;
 }
 
