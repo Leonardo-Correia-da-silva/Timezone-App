@@ -1,11 +1,8 @@
-
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import i18n from 'i18next';
 import './App.css';
-
-
 
 const App = () => {
   const { t } = useTranslation();
@@ -16,6 +13,8 @@ const App = () => {
   const [selectedTimezone, setSelectedTimezone] = useState(null);
   const [countries, setCountries] = useState([]);
   const [isSelectorOpen, setIsSelectorOpen] = useState(false);
+
+  const countrySelectRef = useRef(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -62,6 +61,10 @@ const App = () => {
 
   const handleSelectorToggle = () => {
     setIsSelectorOpen(!isSelectorOpen);
+    // Tentar abrir o teclado ao clicar no seletor
+    if (countrySelectRef.current) {
+      countrySelectRef.current.focus();
+    }
   };
 
   return (
@@ -71,6 +74,7 @@ const App = () => {
         <label htmlFor="countryCode">{t('selectCountryLabel')}</label>
         <select
           id="countryCode"
+          ref={countrySelectRef}
           value={selectedCountryCode}
           onChange={handleCountryCodeChange}
           onClick={handleSelectorToggle}
@@ -89,7 +93,8 @@ const App = () => {
       </div>
       {selectedTimezone && (
         <p>
-          {t('months.' + (currentTime.getMonth() + 1))}  {currentTime.getDate()} - {currentTime.getFullYear()}{' | '}
+          {t('months.' + (currentTime.getMonth() + 1))} {currentTime.getDate()} -{' '}
+          {currentTime.getFullYear()} |{' '}
           {currentTime.toLocaleTimeString('en-US', {
             timeZone: selectedTimezone.zoneName,
             hour: '2-digit',
@@ -98,7 +103,7 @@ const App = () => {
           })}
         </p>
       )}
-      <div className='on-click'>
+      <div className="on-click">
         <button onClick={() => changeLanguage('pt-BR')}>{t('portuguese')}</button>
         <button onClick={() => changeLanguage('en')}>{t('english')}</button>
       </div>
