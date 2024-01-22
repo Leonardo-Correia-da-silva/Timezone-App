@@ -66,7 +66,7 @@ const App = () => {
       countrySelectRef.current.focus();
     }
   };
-
+  
   return (
     <div className="container">
       <h1>{t('title')}</h1>
@@ -81,11 +81,14 @@ const App = () => {
           onBlur={handleSelectorToggle}
         >
           <option value="">{t('chooseCountryOption')}</option>
-          {countries.map((countryCode) => (
-            <option key={countryCode} value={countryCode}>
-              {getCountryName(countryCode)}
-            </option>
-          ))}
+          {/* Ordenar os países em ordem alfabética antes de mapear para as opções */}
+          {countries
+            .sort((a, b) => getCountryName(a).localeCompare(getCountryName(b)))
+            .map((countryCode) => (
+              <option key={countryCode} value={countryCode}>
+                {getCountryName(countryCode)}
+              </option>
+            ))}
         </select>
         <button onClick={handleShowTimezone} disabled={!selectedCountryCode}>
           {t('showTimeButton')}
