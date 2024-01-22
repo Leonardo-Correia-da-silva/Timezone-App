@@ -71,7 +71,7 @@ const App = () => {
     <div className="container">
       <h1>{t('title')}</h1>
       <div>
-        <label htmlFor="countryCode">{t('selectCountryLabel')}</label>
+        <label htmlFor="countryCode">{t('')}</label>
         <select
           id="countryCode"
           ref={countrySelectRef}
